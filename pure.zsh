@@ -160,6 +160,8 @@ prompt_pure_preprompt_render() {
 		preprompt_parts+=('%F{$prompt_pure_colors[git:stash]}${PURE_GIT_STASH_SYMBOL:-≡}%f')
 	fi
 
+	preprompt_parts+='%F{$prompt_pure_colors[timestamp]}%*%f'
+
 	# Execution time.
 	[[ -n $prompt_pure_cmd_exec_time ]] && preprompt_parts+=('%F{$prompt_pure_colors[execution_time]}${prompt_pure_cmd_exec_time}%f')
 
@@ -823,6 +825,7 @@ prompt_pure_setup() {
 		user                 242
 		user:root            default
 		virtualenv           242
+		timestamp            242
 	)
 	prompt_pure_colors=("${(@kv)prompt_pure_colors_default}")
 
